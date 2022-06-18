@@ -133,12 +133,12 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:creatureName', (req,res) => {
-    const creaturesName = req.params.creatureName.toLowerCase()
-    if(creatures[creaturesName]){
-        return res.json(creatures[creaturesName])
+app.get('/api/:raceName', (req,res) => {
+    const raceName = req.params.raceName.toLowerCase()
+    if(races[raceName]){
+        return res.json(race[raceName])
     }else{
-        res.json(creatures['not a creature'])
+        res.json(races['not a playable race'])
     }
 })
 
