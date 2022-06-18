@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express')
 const app = express()
 const cors = require('cors')
 const PORT = 8000
@@ -6,7 +6,7 @@ const PORT = 8000
 app.use(cors())
 
 
-const races = {
+const race = {
     'Altmer': {
         'raceName': 'Altmer',
         'knownAs': 'High Elf',
@@ -80,7 +80,7 @@ const races = {
         'img': 'insert'
     },
     'Khajiit' : {
-        'speciesName': 'Khajiit',
+        'raceName': 'Khajiit',
         'knownAs': 'Khajiit',
         'homeland': 'Elsweyr',
         'uniqueSkills': 'one-handed, archery, sneak, lockpicking, pickpocket, alchemy,',
@@ -116,15 +116,15 @@ const races = {
         'img': 'insert'
     },
     'Redguard' : {
-        'raceName': 'Redguard',
-        'knownAs': 'Redguard',
-        'homeland': 'Hammerfell',
-        'uniqueSkills': 'smithing, block, one-handed, archery, destruction, alteration',
-        'startingSpells': 'healing, flames',
-        'uniquePower': 'Adrenaline Rush: regenerate stamina 10 times faster for 60 seconds',
-        'uniqueEffects': '50% Poison Resistance',
-        'survivalMode': 'none',
-        'history': 'Redguards hail from the great desert province of Hammerfell. They are descended from a long line of warriors and mystic seers. Legend has it that Redguards are innately more proficient with the use of weaponry than any other race. They excel in all arts concerning blade and shield. The most naturally talented warriors in Tamriel, the dark-skinned Redguards of Hammerfell seem born to battle. However, their pride and fierce independence of spirit makes them more suitable as scouts or skirmishers, or as free ranging heroes and adventurers, than as rank and file soldiers. In addition to their cultural affinities for many weapon and armor styles, Redguards are also blessed with hardy constitutions and fleetness of foot.',
+        'raceName' : 'Redguard',
+        'knownAs' : 'Redguard',
+        'homeland' : 'Hammerfell',
+        'uniqueSkills' : 'smithing, block, one-handed, archery, destruction, alteration',
+        'startingSpells' : 'healing, flames',
+        'uniquePower' : 'Adrenaline Rush: regenerate stamina 10 times faster for 60 seconds',
+        'uniqueEffects' : '50% Poison Resistance',
+        'survivalMode' : 'none',
+        'history' : 'Redguards hail from the great desert province of Hammerfell. They are descended from a long line of warriors and mystic seers. Legend has it that Redguards are innately more proficient with the use of weaponry than any other race. They excel in all arts concerning blade and shield. The most naturally talented warriors in Tamriel, the dark-skinned Redguards of Hammerfell seem born to battle. However, their pride and fierce independence of spirit makes them more suitable as scouts or skirmishers, or as free ranging heroes and adventurers, than as rank and file soldiers. In addition to their cultural affinities for many weapon and armor styles, Redguards are also blessed with hardy constitutions and fleetness of foot.',
         'img': 'insert'
     }
 }
@@ -134,11 +134,11 @@ app.get('/', (req,res) => {
 })
 
 app.get('/api/:raceName', (req,res) => {
-    const raceName = req.params.raceName.toLowerCase()
-    if(races[raceName]){
-        return res.json(race[raceName])
+    const racesName = req.params.raceName.toLowerCase()
+    if(race[racesName]){
+        res.json(race[racesName])
     }else{
-        res.json(races['not a playable race'])
+        res.json(race['not a playable race'])
     }
 })
 
