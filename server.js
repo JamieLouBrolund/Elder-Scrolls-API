@@ -134,12 +134,12 @@ app.get('/', (req,res) => {
 })
 
 app.get('/api/:raceName', (req,res) => {
-    console.log(race)
+    //console.log(race)
     const racesName = req.params.raceName.toLowerCase()
     if(race[racesName]){
         res.json(race[racesName])
     }else{
-        res.json(race['not a playable race'])
+        res.json(race['creature'])
     }
     
 })
